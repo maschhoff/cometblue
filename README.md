@@ -1,3 +1,17 @@
+# HeizungsServerPy
+
+Small HeatingServer written in python.
+This HeatingServer is a Bridge for CometBlue Thermostat like Comet Blue, Lidl Silvercrest etc.
+It builds up a tcp Server which can be easily called by using a Webbrowser or curl or similar tools.
+I have integrated it onto my raspberry pi and so I am able to control my heating with openHAB.
+This Server is using cometblue thats why I forked it here.
+
+Install 
+1. Get python and pip / pip3 running
+2. Get cometblue running (Its not that easy to get the dependencies right - I'll catch on that later
+3. Install flask by pip3 install flask
+4- Run python3 HeizungsServer/Server.py 
+
 # cometblue
 ## What is it?
 "Comet Blue" is "The intelligent Bluetooth enabled energy-saving radiator thermostat", as stated in official documentation. Link to manufacturer's web page: http://www.eurotronic.org/produkte/comet-blue.html.
