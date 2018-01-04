@@ -1,0 +1,3 @@
+//HeizungsServer
+Thing exec:command:cometblue-wz-1 [command="/openhab/conf/scripts/cometblue.sh FB:19:25:9F:3D:BA %2$s", interval=0, autorun=true]
+Thing exec:command:cometblue-wz-2 [command="/openhab/conf/scripts/cometblue.sh BC:26:4E:C5:06:B8 %2$s", interval=0, autorun=true]
