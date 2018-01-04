@@ -1,0 +1,9 @@
+//Temperatur im Wohnzimmer steuern
+rule "Wohnzimmertemperatur"
+when Item Heizung_WZ received command
+then
+	val newState = Heizung_WZ.state
+	logInfo("heizung.rules", "Heizung_WZ zu "+newState)
+	sendCommand(Heizung_WZ_1,newState.toString)
+	sendCommand(Heizung_WZ_2,newState.toString)
+end
