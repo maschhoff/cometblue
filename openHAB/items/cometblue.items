@@ -1,3 +1,6 @@
 //HEIZUNG
+//Thermostate
 String Heizung_WZ_1 { channel="exec:command:cometblue-wz-1:input"}
 String Heizung_WZ_2 { channel="exec:command:cometblue-wz-2:input"}
+//RULE GROUPS
+Dimmer Heizung_WZ
