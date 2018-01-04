@@ -10,7 +10,8 @@ Install
 1. Get python and pip / pip3 running
 2. Get cometblue running (Its not that easy to get the dependencies right - I'll catch on that later
 3. Install flask by pip3 install flask
-4- Run python3 HeizungsServer/Server.py 
+4. Run python3 HeizungsServer/Server.py
+
 
 # cometblue
 ## What is it?
