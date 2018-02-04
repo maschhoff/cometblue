@@ -6,6 +6,8 @@
 from flask import Flask
 from subprocess import check_output
 import shlex
+import logging
+import openweathermap
 
 app = Flask(__name__)
 
@@ -14,16 +16,25 @@ def index():
     return "<h1>Heizungsserver up and running!</h1>"
 
 @app.route('/<string:MAC>/<string:TEMP>', methods=['GET'])
-def get_test(MAC,TEMP):
+def set_cometblue(MAC,TEMP):
     try:
-        cmd="cometblue device -p 0 "+MAC+" set temperatures -m "+TEMP
+        cmd="cometblue -a hci1 device -p 123456 "+MAC+" set temperatures -m "+TEMP
         args=shlex.split(cmd)
         process=check_output(args) 
         #out=process.decode("utf-8")
+        logging.info("OK - TEMPERATUR VON "+MAC+" AUF "+TEMP+" GRAD")
         return str("OK - TEMPERATUR VON "+MAC+" AUF "+TEMP+" GRAD")
     except:
         print("ERROR!")
         return "Es ist ein Fehler aufgetreten!"
 
+@app.route('/weather/', methods=['GET'])
+def get_weather():
+	openweathermap.init()
+	logging.info("OpenWeatherMap wurden an openHAB uebertragen")
+	return "OpenWeatherMap wurden an openHAB uebertragen"
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=3247,debug=True)
+	logging.basicConfig(filename='server.log',level=logging.DEBUG)
+	logging.info("Starte Heizungsserver...")
+	app.run(host='0.0.0.0',port=3247,debug=True)
