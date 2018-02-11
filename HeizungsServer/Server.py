@@ -18,7 +18,7 @@ def index():
 @app.route('/<string:MAC>/<string:TEMP>', methods=['GET'])
 def set_cometblue(MAC,TEMP):
     try:
-        cmd="cometblue -a hci1 device -p 123456 "+MAC+" set temperatures -m "+TEMP
+        cmd="cometblue -a hci0 device -p 0000 "+MAC+" set temperatures -m "+TEMP
         args=shlex.split(cmd)
         process=check_output(args) 
         #out=process.decode("utf-8")
